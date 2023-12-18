@@ -14,14 +14,17 @@ public class PairEmployeeApplication {
 		try {
 			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/", "postgres", "7005038450");
 			statement = connection.createStatement();
-			statement.executeQuery("SELECT count(*) FROM pg_database WHERE datname = 'EmployeePair'");
+			statement.executeQuery("SELECT count(*) FROM pg_database WHERE datname = 'employeepair'");
+
 			ResultSet resultSet = statement.getResultSet();
 			resultSet.next();
 			int count = resultSet.getInt(1);
 
 			if (count <= 0) {
-				statement.executeUpdate("CREATE DATABASE EmployeePair");
+				statement.executeUpdate("CREATE DATABASE if not exists employeepair");
+				statement.executeQuery("CREATE TABLE test (id SERIAL PRIMARY KEY name VARCHAR(255) NOT NULL);");
 			}
+
 		} catch (SQLException e) {
 		} finally {
 			try {
