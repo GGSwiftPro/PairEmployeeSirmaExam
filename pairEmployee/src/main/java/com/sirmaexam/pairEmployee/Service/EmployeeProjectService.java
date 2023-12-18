@@ -15,8 +15,15 @@ public class EmployeeProjectService {
     private EmployeeProjectRepository employeeProjectRepository;
 
     public List<EmployeeProject> getEmployeeProjects(Long empID) {
-        return employeeProjectRepository.findAllById(Collections.singleton(empID));
+        return employeeProjectRepository.findAllByEmpId(empID).stream().toList();
     }
+
+    public List<EmployeeProject> getEmployeeProjects1(Long empID) {
+        return employeeProjectRepository.findById(empID).stream().toList();
+    }
+
+
+   // public void addEmployee()
 
     //TODO Add project
     //TODO Add employee
