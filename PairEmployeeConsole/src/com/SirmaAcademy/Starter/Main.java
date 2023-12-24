@@ -1,6 +1,6 @@
 package com.SirmaAcademy.Starter;
 
-import com.SirmaAcademy.Admin.Admin;
+import com.SirmaAcademy.Admin.AdminInterface;
 import com.SirmaAcademy.Admin.EmployeeAdmin;
 import com.SirmaAcademy.ReaderWriter.CSVReader;
 import com.SirmaAcademy.ReaderWriter.CSVWriter;
@@ -19,7 +19,7 @@ public class Main {
         CustomWriter fileWriter = new CSVWriter();
 
         EmployeeService service = new EmployeeServiceImpl(fileReader, fileWriter);
-        Admin admin = new EmployeeAdmin(service);
+        AdminInterface admin = new EmployeeAdmin(service);
         int command;
         System.out.println("Welcome to the Employee-Project System");
         displayOptions();

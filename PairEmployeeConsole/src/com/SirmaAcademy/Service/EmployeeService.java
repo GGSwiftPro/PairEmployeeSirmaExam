@@ -1,6 +1,6 @@
 package com.SirmaAcademy.Service;
 
-import com.SirmaAcademy.Client.EmployeeProject;
+import com.SirmaAcademy.Employee.EmployeeProject;
 
 public interface EmployeeService {
 

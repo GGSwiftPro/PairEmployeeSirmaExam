@@ -1,10 +1,9 @@
 package com.SirmaAcademy.Service;
 
-import com.SirmaAcademy.Client.EmployeeProject;
+import com.SirmaAcademy.Employee.EmployeeProject;
 import com.SirmaAcademy.ReaderWriter.CustomReader;
 import com.SirmaAcademy.ReaderWriter.CustomWriter;
 import java.time.temporal.ChronoUnit;
-import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 

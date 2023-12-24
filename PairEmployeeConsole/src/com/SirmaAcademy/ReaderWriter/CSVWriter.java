@@ -1,7 +1,7 @@
 package com.SirmaAcademy.ReaderWriter;
 
 
-import com.SirmaAcademy.Client.EmployeeProject;
+import com.SirmaAcademy.Employee.EmployeeProject;
 
 import java.io.FileWriter;
 import java.io.IOException;

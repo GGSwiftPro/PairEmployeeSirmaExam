@@ -1,4 +1,4 @@
-package com.SirmaAcademy.Client;
+package com.SirmaAcademy.Employee;
 
 import java.io.Serializable;
 import java.time.LocalDate;

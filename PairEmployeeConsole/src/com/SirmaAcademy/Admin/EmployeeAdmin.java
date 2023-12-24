@@ -1,6 +1,6 @@
 package com.SirmaAcademy.Admin;
 
-import com.SirmaAcademy.Client.EmployeeProject;
+import com.SirmaAcademy.Employee.EmployeeProject;
 import com.SirmaAcademy.ReaderWriter.CSVReader;
 import com.SirmaAcademy.ReaderWriter.CustomReader;
 import com.SirmaAcademy.Service.EmployeeService;
@@ -10,7 +10,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class EmployeeAdmin implements Admin {
+public class EmployeeAdmin implements AdminInterface {
     private EmployeeService service;
     CustomReader r = new CSVReader();
     List<EmployeeProject> employeeProjectList;
@@ -83,9 +83,7 @@ public class EmployeeAdmin implements Admin {
 
             }
             case 3 -> {
-                //List<EmployeeProject> employeesFromFile = (List<EmployeeProject>) r.read("Data.CSV");
                 Scanner scanner = new Scanner(System.in);
-
                 employeeProjectList = r.read("Data.CSV");
                 if (employeeProjectList.isEmpty())
                     System.out.println("There are no employees to update. Please add some!");
@@ -124,8 +122,10 @@ public class EmployeeAdmin implements Admin {
                             scanner.nextLine();
                         }
                     } while (oldProjectId < 0);
+
                     System.out.println("DateFrom: YYYY--MM--DD");
                     oldDateFrom = scanner.nextLine();
+
                     do {
                         System.out.println("DateTo: YYYY--MM--DD");
                         try {
@@ -221,8 +221,10 @@ public class EmployeeAdmin implements Admin {
                             scanner.nextLine();
                         }
                     } while (projectId < 0);
+
                     System.out.println("DateFrom: YYYY-MM-DD");
                     dateFrom = scanner.nextLine();
+
                     do {
                         System.out.println("DateTo: YYYY--MM--DD");
                         try {

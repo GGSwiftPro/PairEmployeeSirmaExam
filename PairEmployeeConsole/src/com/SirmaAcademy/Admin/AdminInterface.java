@@ -1,5 +1,5 @@
 package com.SirmaAcademy.Admin;
 
-public interface Admin {
+public interface AdminInterface {
     void performAction(int command);
 }
