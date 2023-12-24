@@ -1,15 +1,9 @@
-package com.sirmaexam.pairEmployee.Model;
-
-import jakarta.persistence.*;
+package com.SirmaAcademy.Client;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "employee_project")
 public class EmployeeProject implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long EmpId;
     private Long ProjectId;
     private LocalDate DateFrom;
@@ -47,6 +41,11 @@ public class EmployeeProject implements Serializable {
         DateTo = dateTo;
     }
 
+    public LocalDate getDateToOrToday(){
+        if (this.getDateTo()==null)return LocalDate.now();
+        return getDateTo();
+    }
+
     public EmployeeProject(Long empID, Long projectID, LocalDate dateFrom, LocalDate dateTo) {
         EmpId = empID;
         ProjectId = projectID;
@@ -55,4 +54,15 @@ public class EmployeeProject implements Serializable {
     }
 
     public EmployeeProject(){}
+    public String Information(){
+        return  toString();
+    }
+
+    @Override
+    public String toString() {
+        return   EmpId +
+                " ," + ProjectId +
+                " ,"  + DateFrom +
+                " ," + DateTo;
+    }
 }

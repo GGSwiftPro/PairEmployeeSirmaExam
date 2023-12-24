@@ -1,7 +1,6 @@
-package com.sirmaexam.pairEmployee.ReaderWriter;
+package com.SirmaAcademy.ReaderWriter;
 
-
-import com.sirmaexam.pairEmployee.Model.EmployeeProject;
+import com.SirmaAcademy.Client.EmployeeProject;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,16 +13,22 @@ import java.util.List;
 public class CSVReader implements CustomReader {
 
     @Override
-    public List<? extends Serializable> read(String filename) {
+    public List<EmployeeProject> read(String filename) {
+
         List<EmployeeProject> employees = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
             //  TODO check for headers!
 
             while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");
+                String[] values = line.replace(" ","").split(",");
                 //  TODO validations for input data
-                employees.add(new EmployeeProject(Long.parseLong(values[0]), Long.parseLong(values[1]), LocalDate.parse(values[2]),LocalDate.parse(values[3])));
+                Long empId= Long.parseLong(values[0]);
+                Long projectId=Long.parseLong(values[1]);
+                LocalDate dateFrom = LocalDate.parse(values[2]);
+                LocalDate dateTo = "null".equalsIgnoreCase(values[3]) ? null : LocalDate.parse(values[3]);
+
+                employees.add(new EmployeeProject(empId, projectId, dateFrom,dateTo));
             }
 
         } catch (IOException e) {

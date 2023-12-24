@@ -1,5 +1,7 @@
-package com.sirmaexam.pairEmployee.ReaderWriter;
+package com.SirmaAcademy.ReaderWriter;
 
+
+import com.SirmaAcademy.Client.EmployeeProject;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,10 +10,10 @@ import java.util.List;
 
 public class CSVWriter implements CustomWriter {
     @Override
-    public void write(List<Serializable> employees, String filename) {
-        try (FileWriter writer = new FileWriter(filename)) {
+    public void write(List<EmployeeProject> employees, String filename) {
+        try (FileWriter writer = new FileWriter(filename,true)) {
             for (Serializable employee : employees) {
-                writer.write(employee.toString() + "\n");
+                writer.append(employee.toString() + "\n");
             }
         } catch (IOException e){
             e.printStackTrace();
